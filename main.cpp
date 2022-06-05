@@ -33,25 +33,31 @@ int main()
     getline(cin, ar_count_temp);
 
     int ar_count = stoi(ltrim(rtrim(ar_count_temp)));
+    if (ar_count >= 1 && ar_count <= 10) {
+        string ar_temp_temp;
+        getline(cin, ar_temp_temp);
 
-    string ar_temp_temp;
-    getline(cin, ar_temp_temp);
+        vector<string> ar_temp = split(rtrim(ar_temp_temp));
 
-    vector<string> ar_temp = split(rtrim(ar_temp_temp));
+        vector<long> ar(ar_count);
 
-    vector<long> ar(ar_count);
+        for (int i = 0; i < ar_count; i++) {
+            long ar_item = stol(ar_temp[i]);
 
-    for (int i = 0; i < ar_count; i++) {
-        long ar_item = stol(ar_temp[i]);
+            if (ar_item >= 0 && ar_item <= 1e10) {
+                ar[i] = ar_item;
+            }
 
-        ar[i] = ar_item;
+        }
+
+        long result = aVeryBigSum(ar);
+
+        fout << result << "\n";
+
+        fout.close();
     }
 
-    long result = aVeryBigSum(ar);
 
-    fout << result << "\n";
-
-    fout.close();
 
     return 0;
 }
