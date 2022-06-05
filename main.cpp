@@ -14,6 +14,14 @@ vector<string> split(const string &);
  */
 
 long aVeryBigSum(vector<long> ar) {
+    long long arraySum = 0;
+
+    //Use count-controlled loop to Sum all elements in the array
+    for (int i = 0; i < ar.size(); i++) {
+        arraySum += ar[i];
+    }
+
+    return arraySum;
 
 }
 
